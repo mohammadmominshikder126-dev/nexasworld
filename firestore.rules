@@ -1,0 +1,181 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net: Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isBootstrappedAdmin() {
+      return isEmailVerified() && request.auth.token.email == 'nexasworld5@gmail.com';
+    }
+
+    function isAdmin() {
+      return isBootstrappedAdmin() || (
+        isEmailVerified() && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isValidGlobalSettings(data) {
+      return data.keys().hasAll([
+          'supportGroupUrl', 'supportChannelUrl', 'bkashNumber', 'nagadNumber',
+          'minDeposit', 'minWithdraw', 'welcomeBonus',
+          'level1Rate', 'level2Rate', 'level3Rate', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'supportGroupUrl', 'supportChannelUrl', 'bkashNumber', 'nagadNumber',
+          'minDeposit', 'minWithdraw', 'welcomeBonus',
+          'level1Rate', 'level2Rate', 'level3Rate', 'updatedAt'
+        ])
+        && data.supportGroupUrl is string && data.supportGroupUrl.size() <= 300
+        && data.supportChannelUrl is string && data.supportChannelUrl.size() <= 300
+        && data.bkashNumber is string && data.bkashNumber.size() <= 30
+        && data.nagadNumber is string && data.nagadNumber.size() <= 30
+        && data.minDeposit is number && data.minDeposit >= 1
+        && data.minWithdraw is number && data.minWithdraw >= 1
+        && data.welcomeBonus is number && data.welcomeBonus >= 0
+        && data.level1Rate is number && data.level1Rate >= 0 && data.level1Rate <= 100
+        && data.level2Rate is number && data.level2Rate >= 0 && data.level2Rate <= 100
+        && data.level3Rate is number && data.level3Rate >= 0 && data.level3Rate <= 100
+        && data.updatedAt == request.time;
+    }
+
+    function isValidPlan(data) {
+      return data.keys().hasAll([
+          'id', 'name', 'price', 'dailyIncome', 'totalIncome',
+          'validityDays', 'imageUrl', 'sortOrder', 'active', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'name', 'price', 'dailyIncome', 'totalIncome',
+          'validityDays', 'imageUrl', 'badge', 'sortOrder', 'active', 'updatedAt'
+        ])
+        && isValidId(data.id) && data.id.size() <= 64
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 80
+        && data.price is number && data.price > 0
+        && data.dailyIncome is number && data.dailyIncome > 0
+        && data.totalIncome is number && data.totalIncome >= data.dailyIncome
+        && data.validityDays is number && data.validityDays >= 1 && data.validityDays <= 3650
+        && data.imageUrl is string && data.imageUrl.size() > 0 && data.imageUrl.size() <= 500
+        && (!data.keys().hasAny(['badge']) || (data.badge is string && data.badge.size() <= 60))
+        && data.sortOrder is number && data.sortOrder >= 0
+        && data.active is bool
+        && data.updatedAt == request.time;
+    }
+
+    function isValidBanner(data) {
+      return data.keys().hasAll([
+          'id', 'order', 'title', 'subtitle', 'imageUrl', 'active', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'id', 'order', 'title', 'subtitle', 'badge', 'imageUrl', 'accent', 'active', 'updatedAt'
+        ])
+        && isValidId(data.id) && data.id.size() <= 64
+        && data.order is number && data.order >= 0 && data.order <= 100
+        && data.title is string && data.title.size() > 0 && data.title.size() <= 160
+        && data.subtitle is string && data.subtitle.size() <= 320
+        && (!data.keys().hasAny(['badge']) || (data.badge is string && data.badge.size() <= 60))
+        && data.imageUrl is string && data.imageUrl.size() > 0 && data.imageUrl.size() <= 500
+        && (!data.keys().hasAny(['accent']) || (data.accent is string && data.accent.size() <= 40))
+        && data.active is bool
+        && data.updatedAt == request.time;
+    }
+
+    function isValidAdminUser(data, uid) {
+      return data.keys().hasAll(['uid', 'email', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['uid', 'email', 'createdAt', 'updatedAt'])
+        && isValidId(data.uid) && data.uid == uid
+        && data.email is string && data.email.size() > 3 && data.email.size() <= 160
+        && data.createdAt == request.time
+        && data.updatedAt == request.time;
+    }
+
+    match /settings/{settingId} {
+      allow get: if isValidId(settingId) && settingId == 'global';
+      allow create: if isValidId(settingId) && settingId == 'global' && isAdmin() && isValidGlobalSettings(incoming());
+      allow update: if isValidId(settingId) && settingId == 'global' && isAdmin() && isValidGlobalSettings(incoming())
+        && incoming().diff(existing()).affectedKeys().hasOnly([
+          'supportGroupUrl', 'supportChannelUrl', 'bkashNumber', 'nagadNumber',
+          'minDeposit', 'minWithdraw', 'welcomeBonus',
+          'level1Rate', 'level2Rate', 'level3Rate', 'updatedAt'
+        ]);
+      allow delete: if false;
+    }
+
+    match /plans/{planId} {
+      allow get: if isValidId(planId);
+      allow list: if resource.data.active == true || isBootstrappedAdmin();
+      allow create: if isValidId(planId) && isAdmin() && isValidPlan(incoming()) && incoming().id == planId;
+      allow update: if isValidId(planId) && isAdmin() && isValidPlan(incoming())
+        && incoming().id == existing().id
+        && incoming().diff(existing()).affectedKeys().hasOnly([
+          'name', 'price', 'dailyIncome', 'totalIncome', 'validityDays',
+          'imageUrl', 'badge', 'sortOrder', 'active', 'updatedAt'
+        ]);
+      allow delete: if isValidId(planId) && isAdmin();
+    }
+
+    match /banners/{bannerId} {
+      allow get: if isValidId(bannerId);
+      allow list: if resource.data.active == true || isBootstrappedAdmin();
+      allow create: if isValidId(bannerId) && isAdmin() && isValidBanner(incoming()) && incoming().id == bannerId;
+      allow update: if isValidId(bannerId) && isAdmin() && isValidBanner(incoming())
+        && incoming().id == existing().id
+        && incoming().diff(existing()).affectedKeys().hasOnly([
+          'order', 'title', 'subtitle', 'badge', 'imageUrl', 'accent', 'active', 'updatedAt'
+        ]);
+      allow delete: if isValidId(bannerId) && isAdmin();
+    }
+
+    function isValidGiftCode(data) {
+      return data.keys().hasAll(['code', 'amount', 'active', 'usedCount', 'updatedAt'])
+        && data.keys().hasOnly(['code', 'amount', 'active', 'maxUses', 'usedCount', 'createdAt', 'updatedAt'])
+        && data.code is string && data.code.size() > 0 && data.code.size() <= 40 && data.code.matches('^[A-Z0-9_\\-]+$')
+        && data.amount is number && data.amount > 0 && data.amount <= 100000
+        && data.active is bool
+        && (!data.keys().hasAny(['maxUses']) || (data.maxUses is number && data.maxUses >= 1))
+        && data.usedCount is number && data.usedCount >= 0
+        && (!data.keys().hasAny(['createdAt']) || (data.createdAt is string && data.createdAt.size() <= 64))
+        && data.updatedAt == request.time;
+    }
+
+    match /admins/{uid} {
+      allow get: if isValidId(uid) && isSignedIn() && (request.auth.uid == uid || isBootstrappedAdmin());
+      allow create: if isValidId(uid) && isBootstrappedAdmin() && isValidAdminUser(incoming(), uid);
+      allow update: if isValidId(uid) && isBootstrappedAdmin() && isValidAdminUser(incoming(), uid)
+        && incoming().createdAt == existing().createdAt
+        && incoming().uid == existing().uid
+        && incoming().diff(existing()).affectedKeys().hasOnly(['email', 'updatedAt']);
+      allow delete: if isValidId(uid) && isBootstrappedAdmin();
+    }
+
+    match /giftCodes/{giftCode} {
+      allow get: if isValidId(giftCode);
+      allow list: if isAdmin();
+      allow create: if isValidId(giftCode) && isAdmin() && isValidGiftCode(incoming()) && incoming().code == giftCode;
+      allow update: if isValidId(giftCode) && isAdmin() && isValidGiftCode(incoming())
+        && incoming().code == existing().code
+        && incoming().diff(existing()).affectedKeys().hasOnly(['amount', 'active', 'maxUses', 'usedCount', 'updatedAt']);
+      allow delete: if isValidId(giftCode) && isAdmin();
+    }
+  }
+}

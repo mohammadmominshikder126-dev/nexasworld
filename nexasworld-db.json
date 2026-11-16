@@ -1,0 +1,489 @@
+{
+  "adminPasscode": "admin1234",
+  "settings": {
+    "supportGroupUrl": "https://t.me/NexasWorld_SupportGroup",
+    "supportChannelUrl": "https://t.me/NexasWorld_OfficialChannel",
+    "bkashNumber": "01789-083100",
+    "nagadNumber": "01812-459200",
+    "minDeposit": 150,
+    "minWithdraw": 200,
+    "welcomeBonus": 100,
+    "level1Rate": 20,
+    "level2Rate": 3,
+    "level3Rate": 2,
+    "updatedAt": "2026-11-14T20:58:48.291Z"
+  },
+  "plans": [
+    {
+      "id": "vip_1",
+      "name": "VIP 1",
+      "price": 300,
+      "dailyIncome": 45,
+      "totalIncome": 1350,
+      "validityDays": 30,
+      "imageUrl": "/assets/aistudio/nexas-6000-White-Slush_01ab39be.jpg",
+      "badge": "জনপ্রিয় স্টার্টার",
+      "sortOrder": 1,
+      "active": true
+    },
+    {
+      "id": "vip_2",
+      "name": "VIP 2",
+      "price": 600,
+      "dailyIncome": 95,
+      "totalIncome": 2850,
+      "validityDays": 30,
+      "imageUrl": "/assets/aistudio/Strawberry_Apple_9befc96f.jpg",
+      "badge": "বেস্ট ভ্যালু",
+      "sortOrder": 2,
+      "active": true
+    },
+    {
+      "id": "vip_3",
+      "name": "VIP 3",
+      "price": 1200,
+      "dailyIncome": 210,
+      "totalIncome": 6300,
+      "validityDays": 30,
+      "imageUrl": "/assets/aistudio/FreshWatermelon_834e3ab2.jpg",
+      "badge": "হাই রিটার্ন",
+      "sortOrder": 3,
+      "active": true
+    },
+    {
+      "id": "vip_4",
+      "name": "VIP 4",
+      "price": 2500,
+      "dailyIncome": 460,
+      "totalIncome": 13800,
+      "validityDays": 30,
+      "imageUrl": "/assets/aistudio/nexas-6000-Sugus-Grape_a04e8e98.jpg",
+      "badge": "প্রিমিয়াম",
+      "sortOrder": 4,
+      "active": true
+    },
+    {
+      "id": "vip_5",
+      "name": "VIP 5",
+      "price": 5000,
+      "dailyIncome": 960,
+      "totalIncome": 28800,
+      "validityDays": 30,
+      "imageUrl": "/assets/aistudio/nexas-6000-White-Slush_01ab39be.jpg",
+      "badge": "প্রো গোল্ড",
+      "sortOrder": 5,
+      "active": true
+    },
+    {
+      "id": "vip_6",
+      "name": "VIP 6",
+      "price": 10000,
+      "dailyIncome": 2050,
+      "totalIncome": 61500,
+      "validityDays": 30,
+      "imageUrl": "/assets/aistudio/FreshWatermelon_834e3ab2.jpg",
+      "badge": "ডায়মন্ড",
+      "sortOrder": 6,
+      "active": true
+    }
+  ],
+  "banners": [
+    {
+      "id": "banner_1",
+      "order": 1,
+      "badge": "NexasWorld অফিশিয়াল",
+      "title": "NEXAS অফিশিয়াল ব্র্যান্ড",
+      "subtitle": "আধুনিক ও সুরক্ষিত ডিজিটাল ইনভেস্টমেন্ট ইকোসিস্টেম।",
+      "imageUrl": "/assets/aistudio/nexas_black_banner.svg",
+      "accent": "from-slate-950/90 via-slate-950/75 to-slate-900/60",
+      "active": true
+    },
+    {
+      "id": "banner_2",
+      "order": 2,
+      "badge": "Welcome to Nexas World",
+      "title": "Welcome to Nexas World",
+      "subtitle": "A next-generation digital ecosystem for innovation, connection, and growth.",
+      "imageUrl": "/assets/aistudio/received_1871145587209649_543e2d80.jpeg",
+      "accent": "from-slate-950/90 via-slate-950/75 to-slate-900/60",
+      "active": true
+    },
+    {
+      "id": "banner_3",
+      "order": 3,
+      "badge": "Nexas World",
+      "title": "Nexas World ইকোসিস্টেম",
+      "subtitle": "Modern Platform · Secure & Scalable · Built for the Future",
+      "imageUrl": "/assets/aistudio/nexas_world_wireframe_banner.svg",
+      "accent": "from-slate-950/90 via-slate-950/75 to-slate-900/60",
+      "active": true
+    },
+    {
+      "id": "banner_4",
+      "order": 4,
+      "badge": "GoPay গেটওয়ে",
+      "title": "বিকাশ ও নগদে দ্রুত ও নিরাপদ রিচার্জ",
+      "subtitle": "মাত্র ৳150 থেকে রিচার্জ শুরু করুন — GoPay এর মাধ্যমে নিরাপদ ভেরিফিকেশন সুবিধা।",
+      "imageUrl": "/assets/aistudio/nexas_black_banner.svg",
+      "accent": "from-violet-950/90 via-slate-950/75 to-slate-900/60",
+      "active": false
+    },
+    {
+      "id": "banner_5",
+      "order": 5,
+      "badge": "দ্রুত উত্তোলন",
+      "title": "মাত্র ৳200 হলেই বিকাশ ও নগদে উত্তোলন",
+      "subtitle": "ব্যাংক কার্ড সেটআপ করে প্যাকেজ সক্রিয় রাখুন এবং দ্রুত আপনার প্রফিট উত্তোলন করুন।",
+      "imageUrl": "/assets/aistudio/received_1871145587209649_543e2d80.jpeg",
+      "accent": "from-amber-950/90 via-slate-950/75 to-slate-900/60",
+      "active": false
+    },
+    {
+      "id": "banner_6",
+      "order": 6,
+      "badge": "৩-লেভেল রেফারেল",
+      "title": "বন্ধুদের আমন্ত্রণ জানিয়ে 25% পর্যন্ত কমিশন",
+      "subtitle": "লেভেল 1 থেকে 20%, লেভেল 2 থেকে 3% এবং লেভেল 3 থেকে 2% সরাসরি বোনাস অর্জন করুন।",
+      "imageUrl": "/assets/aistudio/nexas_world_wireframe_banner.svg",
+      "accent": "from-blue-950/90 via-slate-950/75 to-slate-900/60",
+      "active": false
+    },
+    {
+      "id": "banner_7",
+      "order": 7,
+      "badge": "দৈনিক বেতন প্ল্যান",
+      "title": "সক্রিয় টিম তৈরি করে বাড়তি দৈনিক বেতন",
+      "subtitle": "আপনার টিম যত বড় হবে, প্রতিদিন তত বেশি নির্ধারিত বেতন ও গিফট কোড বোনাস আনলক হবে।",
+      "imageUrl": "/assets/aistudio/nexas_black_banner.svg",
+      "accent": "from-teal-950/90 via-slate-950/75 to-slate-900/60",
+      "active": false
+    },
+    {
+      "id": "banner_8",
+      "order": 8,
+      "badge": "স্বচ্ছ হিসাব",
+      "title": "রিয়েল-টাইম ট্রানজেকশন ও ইনকাম ট্র্যাকিং",
+      "subtitle": "প্রতিটি ডিপোজিট, দৈনিক আয় ও উত্তোলনের পূর্ণাঙ্গ হিসাব আপনার অ্যাকাউন্টেই সুরক্ষিত থাকে।",
+      "imageUrl": "/assets/aistudio/received_1871145587209649_543e2d80.jpeg",
+      "accent": "from-indigo-950/90 via-slate-950/75 to-slate-900/60",
+      "active": false
+    },
+    {
+      "id": "banner_9",
+      "order": 9,
+      "badge": "২৪/৭ সাপোর্ট",
+      "title": "টেলিগ্রাম গ্রুপ ও চ্যানেলে সরাসরি সহায়তা",
+      "subtitle": "যেকোনো প্রয়োজনে আমাদের অফিশিয়াল কাস্টমার সার্ভিস গ্রুপ ও চ্যানেলে যুক্ত থাকুন।",
+      "imageUrl": "/assets/aistudio/nexas_world_wireframe_banner.svg",
+      "accent": "from-slate-950/90 via-slate-900/80 to-emerald-950/70",
+      "active": false
+    },
+    {
+      "id": "banner_10",
+      "order": 10,
+      "badge": "গিফট বোনাস",
+      "title": "অফিশিয়াল গিফট কোডে বাড়তি রিওয়ার্ড",
+      "subtitle": "টেলিগ্রাম চ্যানেল থেকে গিফট কোড সংগ্রহ করুন এবং প্রোফাইল থেকে রিডিম করে বোনাস নিন।",
+      "imageUrl": "/assets/aistudio/nexas_black_banner.svg",
+      "accent": "from-emerald-950/90 via-slate-950/80 to-amber-950/70",
+      "active": false
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_6dbe784c4431",
+      "phone": "+8801923948150",
+      "passwordHash": "ad4dbee0456c37ab2952400c62b4572e2b268aeea2f0c3c1a6e62dabf2993177",
+      "referralCode": "994fc33f5b",
+      "referredBy": null,
+      "rechargeBalance": 100,
+      "withdrawalBalance": 45,
+      "hasRecharged": true,
+      "hasPurchasedPlan": true,
+      "bankCard": null,
+      "claimedSalaryLevels": [],
+      "redeemedGiftCodes": [],
+      "createdAt": "2026-11-14T21:01:32.792Z"
+    }
+  ],
+  "sessions": {
+    "e5281501eb96e0e31c384e06f9f672cb09acb08ea246bbe6": "usr_6dbe784c4431",
+    "a2d8967d25dd94abecf5753695803e035614b4e362960c94": "usr_6dbe784c4431"
+  },
+  "adminTokens": {},
+  "userPlans": [
+    {
+      "id": "up_f27fc9a856e7",
+      "userId": "usr_6dbe784c4431",
+      "planId": "vip_1",
+      "planName": "VIP 1",
+      "imageUrl": "/assets/aistudio/nexas-6000-White-Slush_01ab39be.jpg",
+      "price": 300,
+      "dailyIncome": 45,
+      "totalIncome": 1350,
+      "validityDays": 30,
+      "daysCredited": 1,
+      "totalEarned": 45,
+      "purchasedAt": "2026-11-14T21:09:23.331Z",
+      "nextPayoutAt": "2026-11-16T21:09:23.331Z",
+      "status": "active"
+    }
+  ],
+  "deposits": [
+    {
+      "id": "dep_c08b651f7dee",
+      "orderId": "GP9425530043",
+      "userId": "usr_6dbe784c4431",
+      "userPhone": "+8801923948150",
+      "amount": 150,
+      "method": "nagad",
+      "senderNumber": "+8801923948150",
+      "trxId": "MAKIIHEOHSI",
+      "status": "pending",
+      "createdAt": "2026-11-14T22:10:55.301Z"
+    },
+    {
+      "id": "dep_cf4d6c14e25e",
+      "orderId": "GP9252177514",
+      "userId": "usr_6dbe784c4431",
+      "userPhone": "+8801923948150",
+      "amount": 150,
+      "method": "nagad",
+      "senderNumber": "+8801923948150",
+      "trxId": "MMMMMMMMM",
+      "status": "pending",
+      "createdAt": "2026-11-14T21:42:01.775Z"
+    },
+    {
+      "id": "dep_40720416ead6",
+      "orderId": "GP9245051228",
+      "userId": "usr_6dbe784c4431",
+      "userPhone": "+8801923948150",
+      "amount": 150,
+      "method": "bkash",
+      "senderNumber": "+8801923948150",
+      "trxId": "ইসুইহব্দ",
+      "status": "pending",
+      "createdAt": "2026-11-14T21:40:50.512Z"
+    },
+    {
+      "id": "dep_f0174b6fd529",
+      "orderId": "GP9241695579",
+      "userId": "usr_6dbe784c4431",
+      "userPhone": "+8801923948150",
+      "amount": 150,
+      "method": "bkash",
+      "senderNumber": "+8801923948150",
+      "trxId": "জশজিই্‌",
+      "status": "pending",
+      "createdAt": "2026-11-14T21:40:16.955Z"
+    },
+    {
+      "id": "dep_1eb531bfe2cd",
+      "orderId": "GP9056027928",
+      "userId": "usr_6dbe784c4431",
+      "userPhone": "+8801923948150",
+      "amount": 150,
+      "method": "bkash",
+      "senderNumber": "+8801923948150",
+      "trxId": "উইগিগ",
+      "status": "completed",
+      "createdAt": "2026-11-14T21:09:20.279Z"
+    },
+    {
+      "id": "dep_e1ba70980b4f",
+      "orderId": "GP9036530456",
+      "userId": "usr_6dbe784c4431",
+      "userPhone": "+8801923948150",
+      "amount": 150,
+      "method": "bkash",
+      "senderNumber": "+8801923948150",
+      "trxId": "ম্মম্মম্ম",
+      "status": "completed",
+      "createdAt": "2026-11-14T21:06:05.305Z"
+    }
+  ],
+  "withdrawals": [],
+  "transactions": [
+    {
+      "id": "tx_3ab1565317ff",
+      "userId": "usr_6dbe784c4431",
+      "type": "daily_income",
+      "title": "VIP 1 দৈনিক আয় (1/30)",
+      "amount": 45,
+      "balanceType": "withdrawal",
+      "createdAt": "2026-11-16T13:12:08.547Z"
+    },
+    {
+      "id": "tx_594087355b6d",
+      "userId": "usr_6dbe784c4431",
+      "type": "plan_buy",
+      "title": "VIP 1 প্যাকেজ ক্রয়",
+      "amount": -300,
+      "balanceType": "recharge",
+      "createdAt": "2026-11-14T21:09:23.331Z"
+    },
+    {
+      "id": "tx_6e55622695ed",
+      "userId": "usr_6dbe784c4431",
+      "type": "deposit",
+      "title": "GoPay বিকাশ রিচার্জ (উইগিগ)",
+      "amount": 150,
+      "balanceType": "recharge",
+      "createdAt": "2026-11-14T21:09:20.279Z"
+    },
+    {
+      "id": "tx_37cda0013c7f",
+      "userId": "usr_6dbe784c4431",
+      "type": "deposit",
+      "title": "GoPay বিকাশ রিচার্জ (ম্মম্মম্ম)",
+      "amount": 150,
+      "balanceType": "recharge",
+      "createdAt": "2026-11-14T21:06:05.305Z"
+    },
+    {
+      "id": "tx_3428557de659",
+      "userId": "usr_6dbe784c4431",
+      "type": "bonus",
+      "title": "নিবন্ধন স্বাগতম বোনাস",
+      "amount": 100,
+      "balanceType": "recharge",
+      "createdAt": "2026-11-14T21:01:32.792Z"
+    }
+  ],
+  "giftCodes": [
+    {
+      "code": "NEXAS10",
+      "amount": 10,
+      "active": true,
+      "usedCount": 0,
+      "createdAt": "2026-11-14T20:59:05.143Z"
+    },
+    {
+      "code": "VIP15",
+      "amount": 15,
+      "active": true,
+      "usedCount": 0,
+      "createdAt": "2026-11-14T20:59:05.143Z"
+    },
+    {
+      "code": "BONUS5",
+      "amount": 5,
+      "active": true,
+      "usedCount": 0,
+      "createdAt": "2026-11-14T20:59:05.143Z"
+    },
+    {
+      "code": "DAILY12",
+      "amount": 12,
+      "active": true,
+      "usedCount": 0,
+      "createdAt": "2026-11-14T20:59:05.143Z"
+    }
+  ],
+  "liveFeed": [
+    {
+      "id": "lf_b1c07771561e",
+      "timeText": "এইমাত্র",
+      "type": "income",
+      "phone": "+88019****150",
+      "amount": 45,
+      "label": "VIP 1 দৈনিক আয়"
+    },
+    {
+      "id": "lf_5124bbf5019d",
+      "timeText": "এইমাত্র",
+      "type": "income",
+      "phone": "+88019****150",
+      "amount": 300,
+      "label": "VIP 1 অ্যাক্টিভ হয়েছে"
+    },
+    {
+      "id": "lf_3d2404152895",
+      "timeText": "এইমাত্র",
+      "type": "deposit",
+      "phone": "+88019****150",
+      "amount": 150,
+      "method": "বিকাশ",
+      "label": "GoPay রিচার্জ"
+    },
+    {
+      "id": "lf_2d0792031793",
+      "timeText": "এইমাত্র",
+      "type": "deposit",
+      "phone": "+88019****150",
+      "amount": 150,
+      "method": "বিকাশ",
+      "label": "GoPay রিচার্জ"
+    },
+    {
+      "id": "lf_1",
+      "type": "withdraw",
+      "phone": "+88017****842",
+      "amount": 1250,
+      "method": "বিকাশ",
+      "label": "উত্তোলন সফল",
+      "timeText": "এইমাত্র"
+    },
+    {
+      "id": "lf_2",
+      "type": "income",
+      "phone": "+88018****319",
+      "amount": 460,
+      "label": "VIP 4 দৈনিক আয়",
+      "timeText": "১ মিনিট আগে"
+    },
+    {
+      "id": "lf_3",
+      "type": "deposit",
+      "phone": "+88019****504",
+      "amount": 2500,
+      "method": "নগদ",
+      "label": "GoPay রিচার্জ",
+      "timeText": "২ মিনিট আগে"
+    },
+    {
+      "id": "lf_4",
+      "type": "withdraw",
+      "phone": "+88016****771",
+      "amount": 650,
+      "method": "নগদ",
+      "label": "উত্তোলন সফল",
+      "timeText": "৩ মিনিট আগে"
+    },
+    {
+      "id": "lf_5",
+      "type": "income",
+      "phone": "+88013****920",
+      "amount": 960,
+      "label": "VIP 5 দৈনিক আয়",
+      "timeText": "৪ মিনিট আগে"
+    },
+    {
+      "id": "lf_6",
+      "type": "deposit",
+      "phone": "+88017****115",
+      "amount": 1200,
+      "method": "বিকাশ",
+      "label": "GoPay রিচার্জ",
+      "timeText": "৫ মিনিট আগে"
+    },
+    {
+      "id": "lf_7",
+      "type": "withdraw",
+      "phone": "+88015****640",
+      "amount": 2200,
+      "method": "বিকাশ",
+      "label": "উত্তোলন সফল",
+      "timeText": "৬ মিনিট আগে"
+    },
+    {
+      "id": "lf_8",
+      "type": "income",
+      "phone": "+88018****883",
+      "amount": 210,
+      "label": "VIP 3 দৈনিক আয়",
+      "timeText": "৭ মিনিট আগে"
+    }
+  ]
+}

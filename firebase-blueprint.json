@@ -1,0 +1,273 @@
+{
+  "entities": {
+    "GlobalSettings": {
+      "title": "GlobalSettings",
+      "description": "Non-PII global platform configuration controlled from the admin panel and synced in real time.",
+      "type": "object",
+      "properties": {
+        "supportGroupUrl": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "Customer service Telegram group URL"
+        },
+        "supportChannelUrl": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "Official Telegram channel URL"
+        },
+        "bkashNumber": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "Merchant bKash number for GoPay checkout"
+        },
+        "nagadNumber": {
+          "type": "string",
+          "maxLength": 30,
+          "description": "Merchant Nagad number for GoPay checkout"
+        },
+        "minDeposit": {
+          "type": "number",
+          "description": "Minimum deposit amount in BDT"
+        },
+        "minWithdraw": {
+          "type": "number",
+          "description": "Minimum withdrawal amount in BDT"
+        },
+        "welcomeBonus": {
+          "type": "number",
+          "description": "Registration welcome bonus in BDT"
+        },
+        "level1Rate": {
+          "type": "number",
+          "description": "Level 1 referral commission percentage"
+        },
+        "level2Rate": {
+          "type": "number",
+          "description": "Level 2 referral commission percentage"
+        },
+        "level3Rate": {
+          "type": "number",
+          "description": "Level 3 referral commission percentage"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update"
+        }
+      },
+      "required": [
+        "supportGroupUrl",
+        "supportChannelUrl",
+        "bkashNumber",
+        "nagadNumber",
+        "minDeposit",
+        "minWithdraw",
+        "welcomeBonus",
+        "level1Rate",
+        "level2Rate",
+        "level3Rate",
+        "updatedAt"
+      ]
+    },
+    "Plan": {
+      "title": "Plan",
+      "description": "VIP investment package displayed on the Home page and purchased by users.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "price": {
+          "type": "number"
+        },
+        "dailyIncome": {
+          "type": "number"
+        },
+        "totalIncome": {
+          "type": "number"
+        },
+        "validityDays": {
+          "type": "number"
+        },
+        "imageUrl": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "badge": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "sortOrder": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "price",
+        "dailyIncome",
+        "totalIncome",
+        "validityDays",
+        "imageUrl",
+        "sortOrder",
+        "active",
+        "updatedAt"
+      ]
+    },
+    "Banner": {
+      "title": "Banner",
+      "description": "Promotional home banner slide in the 10-slide carousel.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "order": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "subtitle": {
+          "type": "string",
+          "maxLength": 320
+        },
+        "badge": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "imageUrl": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "accent": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "order",
+        "title",
+        "subtitle",
+        "imageUrl",
+        "active",
+        "updatedAt"
+      ]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized admin record keyed by Firebase Auth UID.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "uid",
+        "email",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "GiftCode": {
+      "title": "GiftCode",
+      "description": "Redeemable bonus gift code managed from the admin panel.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^[A-Z0-9_\\-]+$"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "maxUses": {
+          "type": "number"
+        },
+        "usedCount": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "code",
+        "amount",
+        "active",
+        "usedCount",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/GlobalSettings" },
+      "description": "Publicly readable non-PII platform settings; admin-only writes."
+    },
+    "/plans/{planId}": {
+      "schema": { "$ref": "#/entities/Plan" },
+      "description": "Publicly readable VIP investment plans; admin-only writes."
+    },
+    "/banners/{bannerId}": {
+      "schema": { "$ref": "#/entities/Banner" },
+      "description": "Publicly readable 10-slide promotional banners; admin-only writes."
+    },
+    "/admins/{uid}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Verified administrator allowlist documents."
+    },
+    "/giftCodes/{giftCode}": {
+      "schema": { "$ref": "#/entities/GiftCode" },
+      "description": "Admin-managed gift codes; individual lookup allowed by exact code ID without list scraping."
+    }
+  }
+}

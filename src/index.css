@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-bengali: "Hind Siliguri", system-ui, -apple-system, sans-serif;
+    --font-numeric: "Plus Jakarta Sans", "JetBrains Mono", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-bengali);
+    background-color: #0b0e14;
+    color: #f1f5f9;
+    overflow-x: hidden;
+  }
+}
+
+.font-num {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-up {
+  animation: marquee-up 24s linear infinite;
+}
+
+.animate-marquee-up:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-up {
+    animation: none;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
